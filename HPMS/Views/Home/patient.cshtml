@@ -1,0 +1,179 @@
+﻿@model IEnumerable<HPMS.Models.Patient>
+
+@{
+    ViewBag.Title = "patient";
+}
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                @*<div class="box-header">
+
+                    </div>*@
+
+                <div class="box-body">
+
+                    @*<h2 class="box-title" style="font-family:Britannic;">Drug List</h2>*@
+                    <h1>PATIENT LIST</h1>
+
+                    @if (TempData["save"] != null)
+                    {
+                        <h3 class="text-success">@TempData["save"]</h3>
+                    }
+                    else if (TempData["save"] == null)
+                    {
+                        <h3 class="text-danger">NO NEW PATIENT ADDED</h3>
+                    }
+
+                    <p>
+                        <button class="btn">
+                            @Html.ActionLink("ADD NEW PATIENT", "createpatient")
+                        </button>
+                    </p>
+
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    Name
+                                </th>
+                                <th scope="col">
+                                    Gender
+                                </th>
+                                <th scope="col">
+                                    Age
+                                </th>
+                                <th scope="col">
+                                    Address
+                                </th>
+                                <th scope="col">
+                                    Occupation
+                                </th>
+                                <th scope="col">
+                                    Telephone
+                                </th>
+                                <th scope="col">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Fullname)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Gender)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Age)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Address)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Occupation)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Telephone)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.PatientID }) |
+                                        @*@Html.ActionLink("Details", "Details", new { id = item.PatientID }) |*@
+                                        @Html.ActionLink("Delete", "deletepatient", new { id = item.PatientID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                    @*Add bootstrap pagination to this page*@
+
+
+
+
+                    @*<table>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Surname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Firstname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Othername)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Fullname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Gender)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Age)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Address)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Occupation)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Telephone)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                        @foreach (var item in Model) {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Surname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Firstname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Othername)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fullname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gender)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Age)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Occupation)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Telephone)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id=item.PatientID }) |
+                                    @Html.ActionLink("Details", "Details", new { id=item.PatientID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id=item.PatientID })
+                                </td>
+                            </tr>
+                        }
+
+                        </table>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@{
+    ViewBag.Title = "proceed";
+}
+
+<div>
+
+    <section id="loginForm">
+        <div class="form-group col-md-4" style="margin-top:10%; text-align:left; margin-left:33%; background-color:transparent; border:2px groove blue; padding:30px;">
+
+                <h1 style="text-align:center; padding-bottom:10px">GUU PHARMACY</h1>
+                <h3 style="text-align:center; padding-bottom:10px">CONTINUE AS</h3>
+
+                <div class="col-md 2 btn btn-primary" style="margin-left:10px">
+                    <a href="@Url.Content("~/home/index")" style="color:white">
+                    PHARMACIST
+                    </a>
+                </div>
+
+            <div class="col-md 2 btn btn-primary" style="margin-left:10px">
+                <a href="@Url.Content("~/usermanager/index")" style="color:white">
+                    ADMINISTRATOR
+                </a>
+            </div>
+
+            <div class="col-md 2 btn btn-primary" style="margin-left:10px">
+                <a href="@Url.Content("~/home/index")" style="color:white;">
+                    DOCTOR
+                </a>
+            </div>
+
+                @*<input type="submit" value="Log in" class="btn btn-primary" />*@
+
+            </div>
+    </section>
+
+    @*<section class="social" id="socialLoginForm">
+            <h2>Use another service to log in.</h2>
+            @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+        </section>*@
+
+    @*@section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }*@
+
+</div>

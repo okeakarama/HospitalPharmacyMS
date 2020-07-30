@@ -1,0 +1,97 @@
+﻿@*@model PagedList.IPagedList<Blogger.Models.Post>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Search Blogger.";
+}
+
+@{
+    ViewBag.Title = ViewBag.Name;
+}
+
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length <= length)
+    {
+        @Html.Raw(input)
+    }
+    else
+    {
+
+        @Html.Raw(input.Substring(0, length).ToString())<span>.....</span>
+    }
+}
+
+
+
+<div style="clear:both"></div>
+
+<div class="container">
+    <h4 class="page-header">Search Results</h4>
+
+
+    @if (ViewBag.SearchString == "Empty")
+    {
+        <div class="alert alert-info">
+            <p>Type your Search keyword(s) on the Search bar above and click search.</p>
+        </div>
+    }
+    else if (TempData["error"] != null)
+    {
+        <div class="alert alert-danger">
+            <p>Sorry, we didn’t find any results for your search. Please try the following:</p>
+            <ul>
+                <li>Double-check spelling, especially people and place names.</li>
+                <li>Make sure there are spaces between words.</li>
+                <li>Use fewer keywords in your search, especially if you’re unsure of the exact keyword.</li>
+            </ul>
+        </div>
+    }
+    else
+    {
+
+        <div class="row-fluid">
+            @foreach (var item in Model)
+            {
+                <h4><strong>@item.Title</strong></h4>
+                <div class="topstories">
+                    @if (item.Image != null)
+                    {
+                        <img class="pull-left thumbnail" height="80" src="/Images/@(System.IO.Path.GetFileName(item.Image))" alt="" />
+                    }
+                    @Html.Raw(@Truncate(item.Postcontent, 250))
+                    @Html.ActionLink(" Read More", "Details", "Home", new { id = item.PostId, name = item.Title }, null)
+
+                    <small class="text-danger"></small>
+                    <div style="clear:both"></div>
+                </div>
+                <hr />
+            }
+        </div>
+    }
+
+    <div class="col-md-12">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("SearchIndex", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+    </div>
+</div>*@
+
+
+
+@*For the place it should be rendered
+=======================================================================================
+@using (Html.BeginForm("Searchindex", "Home", FormMethod.Get, new { @role = "Form" }))
+{
+
+    <input type="text" name="searchString" />
+    <input type="submit" value="search" />
+
+}*@
+
+
+@*Trick and enjoy. Happy coding, have fun.*@

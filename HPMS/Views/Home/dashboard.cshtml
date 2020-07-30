@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "dashboard";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <h2 class="box-title">DASHBOARD</h2>
+                </div>
+                <div class="box-body">
+
+                    <div class="row-fluid">
+                        <h2>Welcome <b>@User.Identity.Name</b> </h2> <h4><span class="pull-right"> <b>DATE:</b> @System.DateTime.Now.ToUniversalTime().ToLongDateString() <b>TIME:</b> @System.DateTime.UtcNow.ToLocalTime().ToShortTimeString() </span> </h4>
+
+                    </div>
+                    <!-- /. ROW  -->
+                    <hr />
+
+                    <div class="row-fluid">
+
+                        <div class="box black span4" ontablet="span6" ondesktop="span4">
+                            <div class="box-header">
+                                <h2><i class="halflings-icon white list"></i><span class="break"></span>DRUG STAT</h2>
+                               
+                            </div>
+                            <div class="box-content">
+                                
+                                <div class="col-md-12">
+                                    <div>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+                                @*@Html.Action("drugindex", "Home")
+
+                                <div>
+                                    <a href="@Url.Content("~/Home/drug")"><button type="button" class="btn btn-primary" title="View all drugs">See others</button></a>
+                                </div>*@
+                            </div>
+                        </div><!--/span-->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

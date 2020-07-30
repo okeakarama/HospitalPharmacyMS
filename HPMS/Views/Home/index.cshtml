@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <h2 class="box-title">DASHBOARD</h2>
+                </div>
+                <div class="box-body">
+                    <h2>Welcome <b>@User.Identity.Name</b> </h2> 
+                    @Html.Action("menu", "Home")
+
+                    <div class="row-fluid">
+                        <h4><span> <b>DATE:</b> @System.DateTime.Now.ToUniversalTime().ToLongDateString() <b>TIME:</b> @System.DateTime.UtcNow.ToLocalTime().ToShortTimeString() </span> </h4>
+                        
+                    <!-- /. ROW  -->
+                    <hr />
+
+                            <div class="box black span4" ontablet="span6" ondesktop="span4">
+                                <div class="box-header">
+                                    <h2><i class="halflings-icon white list"></i><span class="break"></span>Recently added drugs</h2>
+
+                                </div>
+                                <div class="box-content">
+
+                                    @Html.Action("drugindex", "Home")
+
+                                    <div>
+                                        <a href="@Url.Content("~/Home/drug")"><button type="button" class="btn btn-primary" title="View all drugs">See others</button></a>
+                                    </div>
+
+                                    <div class="box-icon">
+                                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                                    </div>
+                                </div>
+                            </div><!--/span-->
+
+                            <div class="box black span8" ontablet="span10" ondesktop="span8">
+                                <div class="box-header">
+                                    <h2><i class="halflings-icon white user"></i><span class="break"></span>Recently added patients</h2>
+
+
+                                </div>
+                                <div class="box-content">
+                                    @Html.Action("patientindex", "Home")
+
+                                    <div>
+                                        <a href="@Url.Content("~/Home/patient")"><button type="button" class="btn btn-primary" title="View all patient">See others</button></a>
+                                    </div>
+
+                                    <div class="box-icon">
+                                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                                    </div>
+                                </div>
+                            </div><!--/span-->
+
+
+
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - GUU Pharmacy</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="~/Content/Dashboard/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Dashboard/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/Dashboard/dist/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/Dashboard/dist/css/site.css" rel="stylesheet" />
+    <link href="~/Content/Dashboard/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Dashboard/dist/css/skins/_all-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/Dashboard/plugins/iCheck/flat/blue.css" rel="stylesheet" />
+    <link href="~/Content/Dashboard/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    <link href="~/Content/Dashboard/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel=" stylesheet" />
+
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    @RenderSection("style", required: false)
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>GUU </b> Pharmacy</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>GUU</b> Pharmacy </span>
+            </a>
+
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    
+                    <ul class="nav navbar-nav">
+                        <li style="margin-top:10px; margin-right:10px">
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()" style="color:white; padding-top:5px">
+                                    <i class="fa fa-user"></i> <span>Log off</span>
+                                </a>
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/Content/Dashboard/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>@User.Identity.Name</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+
+                    <li>
+                        <a href="@Url.Content("~/Home/Index")">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="@Url.Content("~/Home/createdrug")">
+                            <i class="fa fa-dashboard"></i> <span>Add Drug</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="@Url.Content("~/Home/drug")">
+                            <i class="fa fa-dashboard"></i> <span>View Drug List</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Content("~/Home/createpatient")">
+                            <i class="fa fa-dashboard"></i> <span>Add Patient</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Content("~/Home/patient")">
+                            <i class="fa fa-dashboard"></i> <span>View Patient List</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Content("~/Home/restockalert")">
+                            <i class="fa fa-dashboard"></i> <span>Check for restock</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Content("~/Usermanager/Index")">
+                            <i class="fa fa-dashboard"></i> <span>Administrator</span>
+                        </a>
+                    </li>
+
+                    @*<li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i> <span>Application</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="~/applicant#/applicants"><i class="fa fa-circle-o"></i> All Applications </a></li>
+                            <li><a href="~/applicant#/pendingapplicants"><i class="fa fa-circle-o"></i> Pending Applications </a></li>
+                            <li><a href="~/applicant#/successfulapplicants"><i class="fa fa-circle-o"></i> Successful Applications </a></li>
+                            <li><a href="~/applicant#/failedapplicants"><i class="fa fa-circle-o"></i> Failed Applications </a></li>
+                        </ul>
+                    </li>*@
+                </ul>
+
+            </section>
+
+            <!-- /.sidebar -->
+        </aside>
+
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <div class="clearfix"></div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.7.5.9
+            </div>
+            <strong>&copy;@System.DateTime.UtcNow.Year All right reserved.</strong> Powered by <a href="#">Computer Science Department 2014/2018</a>
+            @*<strong>POWERED BY <a href="#">Computer Science Department</a></strong> All rights reserved @System.DateTime.UtcNow.Year*@
+        </footer>
+    </div>
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    @*@Scripts.Render("~/bundles/adminjs")*@
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

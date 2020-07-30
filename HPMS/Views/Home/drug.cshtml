@@ -1,0 +1,96 @@
+﻿@model IEnumerable<HPMS.Models.Drug>
+
+@{
+    ViewBag.Title = "drug";
+}
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                @*<div class="box-header">
+
+                    </div>*@
+                
+                <div class="box-body">
+                    @*<h2 class="box-title" style="font-family:Britannic;">Drug List</h2>*@
+                    <h1>DRUG LIST</h1>
+
+                    @if (TempData["save"] != null)
+                    {
+                        <h3 class="text-success">@TempData["save"]</h3>
+                    }
+                    else if (TempData["save"] == null)
+                    {
+                        <h3 class="text-danger">NO NEW DRUG ADDED</h3>
+                    }
+
+                    <p>
+                        <button class="btn">
+                            @Html.ActionLink("ADD NEW DRUG", "createdrug")
+                        </button>
+                    </p>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    Name
+                                </th>
+                                <th scope="col">
+                                    Price(N)
+                                </th>
+                                <th scope="col">
+                                    Description
+                                </th>
+                                <th scope="col">
+                                    Quantity
+                                </th>
+                                <th scope="col">
+                                    Rack
+                                </th>
+                                <th scope="col">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.Quantity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Rack)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.ActionLink("Edit", "editdrug", new { id = item.DrugID }) |
+                                        @Html.ActionLink("Delete", "deletedrug", new { id = item.DrugID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                    @*Add bootstrap pagination to this page*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

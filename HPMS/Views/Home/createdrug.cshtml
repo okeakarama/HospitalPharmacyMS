@@ -1,0 +1,195 @@
+﻿@model HPMS.Models.Drug
+
+@{
+    ViewBag.Title = "createdrug";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header">
+
+                </div>
+                <div class="box-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+
+                        <fieldset>
+
+                            <legend><h1>CREATE DRUG</h1></legend>
+
+                            <div class="row" style="text-align:left">
+
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label for="form_name">Name<span style="color:red">*</span></label>
+                                        <input id="form_name" type="text" name="Name" class="form-control" placeholder="Please enter drug name" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form_name">Price<span style="color:red">*</span></label>
+                                        <input id="form_name" type="text" name="Price" class="form-control" placeholder="Please enter price of drug" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form_name">Quantity<span style="color:red">*</span></label>
+                                        <input id="form_name" type="text" name="Quantity" class="form-control" placeholder="Please enter the quantity of drugs" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form_name">Rack</label>
+                                        <input id="form_name" type="text" name="Rack" class="form-control" placeholder="Please enter the rack number" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <p class="text-muted"><strong>Note: <span style="color:red">*</span></strong> These fields are required.</p>
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label for="form_message">Note</label>
+                                        <textarea name="Description" class="form-control" placeholder="Please enter drug description here" rows="12"></textarea>
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div style="float:right">
+                                        <input type="submit" class="btn btn-primary btn-send" value="Create Drug">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </fieldset>
+
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to List", "drug")
+                    </div>
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>createdrug</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Drug</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rack)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rack)
+            @Html.ValidationMessageFor(model => model.Rack)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

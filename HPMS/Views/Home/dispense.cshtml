@@ -1,0 +1,84 @@
+﻿@model HPMS.Models.Drug
+
+@{
+    ViewBag.Title = "dispense";
+}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                @*<div class="box-header">
+
+                    </div>*@
+
+                <div class="box-body">
+                    <h2>dispense</h2>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                            <legend>Drug</legend>
+
+                            @Html.HiddenFor(model => model.DrugID)
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Name)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Name)
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Price)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Price)
+                                @Html.ValidationMessageFor(model => model.Price)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Description)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Description)
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Quantity)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Quantity)
+                                @Html.ValidationMessageFor(model => model.Quantity)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Rack)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Rack)
+                                @Html.ValidationMessageFor(model => model.Rack)
+                            </div>
+
+                            <p>
+                                <input type="submit" value="Dispense" class="btn btn-primary" style="margin:10px;"/>
+                            </p>
+                        </fieldset>
+                    }
+
+                    <div class="btn btn-danger" style="margin-left:10px">
+                        @Html.ActionLink("Cancel", "dispensary")
+                    </div>
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<HPMS.Models.Drug>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                Name
+            </th>
+            <th scope="col">
+                Price(N)
+            </th>
+            <th scope="col">
+                Description
+            </th>
+            <th scope="col">
+                Quantity
+            </th>
+            <th scope="col">
+                Rack
+            </th>
+            <th scope="col">
+                Operations
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in ViewBag.Drugs)
+        {
+            <tr>
+                <td scope="row">
+                    @item.Name
+                    @*@Html.DisplayFor(modelItem => item.Name)*@
+                </td>
+                <td scope="row">
+                    @item.Price
+                    @*@Html.DisplayFor(modelItem => item.Price)*@
+                </td>
+                <td scope="row">
+                    @item.Description
+                    @*@Html.DisplayFor(modelItem => item.Description)*@
+                </td>
+                <td scope="row">
+                    @item.Quantity
+                    @*@Html.DisplayFor(modelItem => item.Quantity)*@
+                </td>
+                <td>
+                    @item.Rack
+                    @*@Html.DisplayFor(modelItem => item.Rack)*@
+                </td>
+                <td scope="row">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.DrugID }) |
+                    @*@Html.ActionLink("Details", "Details", new { id = item.DrugID }) |*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.DrugID })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

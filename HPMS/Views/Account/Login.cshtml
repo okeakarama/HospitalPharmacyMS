@@ -1,0 +1,117 @@
+﻿@model HPMS.Models.LoginModel
+
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+<div>
+
+    @*<img src="~/Images/logo/master.png" style="height:100px; width:20%; margin-left:40%; margin-top:5%"/>*@
+
+    <section id="loginForm">
+
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+            <div class="form-group col-md-4" style="margin-top:10%; text-align:left; margin-left:33%; background-color:transparent; border:2px groove blue; padding:30px;">
+
+                <h1 style="text-align:center; padding-bottom:10px">GUU PHARMACY</h1>
+
+                <div>
+                    USERNAME
+                    <input type="text" name="UserName" class="form-control" />
+                </div>
+
+                <div>
+                    PASSWORD
+                    <input type="password" name="Password" class="form-control" />
+                </div>
+
+                <div style="padding:10px">
+                    <input type="checkbox" name="RememberMe" /> <b>remember me?</b>
+                </div>
+
+                <input type="submit" value="Log in" class="btn btn-primary" />
+
+                @*<p style="margin-top:5px">
+                    @Html.ActionLink("Register", "Register") if you don't have an account.
+                </p>*@
+            </div>
+        }
+    </section>
+
+    @*<section class="social" id="socialLoginForm">
+            <h2>Use another service to log in.</h2>
+            @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+        </section>*@
+
+    @*@section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }*@
+
+</div>
+
+
+
+
+
+
+
+
+
+@*@{
+    ViewBag.Title = "Log in";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<section id="loginForm">
+<h2>Use a local account to log in.</h2>
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Log in Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </li>
+            <li>
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            </li>
+        </ol>
+        <input type="submit" value="Log in" />
+    </fieldset>
+    <p>
+        @Html.ActionLink("Register", "Register") if you don't have an account.
+    </p>
+}
+</section>
+
+<section class="social" id="socialLoginForm">
+    <h2>Use another service to log in.</h2>
+    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

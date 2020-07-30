@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - GUU Pharmacy</title>
+    <link href="~/Content/css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/custom.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+
+
+</head>
+<body style="background-color:silver" @*style="background-image: url(bullent.png);"*@>
+    <div id="body">
+        @*@RenderSection("featured", required: false)*@
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+        <div class="col-md-12" style="text-align:center;">
+            &copy;@System.DateTime.UtcNow.Year All right reserved. Powered by <a href="#">Computer Science Department</a>
+        </div>
+
+    </div>
+
+    <script src="~/Scripts/js/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/js/bootstrap.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_LoginLayout</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+</body>
+</html>*@

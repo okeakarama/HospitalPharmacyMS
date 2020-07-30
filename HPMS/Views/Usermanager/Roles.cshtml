@@ -1,0 +1,44 @@
+﻿@*@model HPMS.Models.UserProfile
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Roles</h2>*@
+
+
+
+@model String[]
+@{
+
+    ViewBag.Title = "Roles";
+}
+
+
+<h1 class="page-header"><strong>ROLES</strong></h1>
+
+<div class="art-postcontent art-postcontent-0 clearfix">
+
+
+    <h3>Existing Roles</h3>
+    <ul>
+        @foreach (var role in Model)
+        {
+            <li><h4>@role</h4></li>
+        }
+    </ul>
+
+    @using (Html.BeginForm("AddRole", "UserManager"))
+    {
+        <h3>Add New Role</h3>
+        <div>
+            <label>Role Name</label>
+            <input type="text" name="rolename" class="form-control col-md-8" /> <br />
+            <input type="submit" value="Add" class="btn btn-primary" style="margin:5px" />
+        </div>
+
+    }
+
+
+
+</div>

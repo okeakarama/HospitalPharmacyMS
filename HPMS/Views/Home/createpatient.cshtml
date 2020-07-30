@@ -1,0 +1,111 @@
+﻿@model HPMS.Models.Patient
+
+@{
+    ViewBag.Title = "createpatient";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header">
+
+                </div>
+                <div class="box-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                            <legend><h1>CREATE PATIENT</h1></legend>
+
+                            <div class="row" style="text-align:left">
+
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label for="form_name">Surname<span style="color:red">*</span></label>
+                                        <input id="form_name" type="text" name="Surname" class="form-control" placeholder="Please enter patient's surname" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form_name">Other Name</label>
+                                        <input id="form_name" type="text" name="Othername" class="form-control" placeholder="Please enter patient's other name" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form_name">Age<span style="color:red">*</span></label>
+                                        <input id="form_name" type="number" name="Age" class="form-control" placeholder="Please enter patient's age" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form_name">Occupation</label>
+                                        <input id="form_name" type="text" name="Occupation" class="form-control" placeholder="Please enter patient's occupation" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <p class="text-muted"><strong>Note: <span style="color:red">*</span></strong> These fields are required.</p>
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label for="form_name">First Name<span style="color:red">*</span></label>
+                                        <input id="form_name" type="text" name="Firstname" class="form-control" placeholder="Please enter patient's first name" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form_name">Gender<span style="color:red">*</span></label>
+                                        <select name="Gender" class="form-control">
+                                            <option value="">[Select one]</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="undefined">Undefined</option>
+                                        </select>
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form_name">Address<span style="color:red">*</span></label>
+                                        <input id="form_name" type="text" name="Address" class="form-control" placeholder="Please enter patient's address" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form_name">Telephone<span style="color:red">*</span></label>
+                                        <input id="form_name" type="number" name="Telephone" class="form-control" placeholder="Please enter patient's Telephone" />
+                                        @*<div class="help-block with-errors"></div>*@
+                                    </div>
+
+                                    <div style="float:right">
+                                        <input type="submit" class="btn btn-primary btn-send" value="Add Patient">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
